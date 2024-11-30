@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="LWM的个人博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="LWM的个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="LWM">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>LWM的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LWM的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">专注技术分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-首页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于作者">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于作者</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LWM">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWM的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/30/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">使用Hexo搭建个人博客网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-11-30 12:33:20 / Modified: 13:14:38" itemprop="dateCreated datePublished" datetime="2024-11-30T12:33:20+08:00">2024-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">开源软件</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Hexo-搭建个人博客"><a href="#Hexo-搭建个人博客" class="headerlink" title="Hexo 搭建个人博客"></a>Hexo 搭建个人博客</h1><h2 id="Hexo-介绍"><a href="#Hexo-介绍" class="headerlink" title="Hexo 介绍"></a>Hexo 介绍</h2><p>Hexo 是一个快速、简洁且强大的博客框架，基于 Node.js 构建，主要用于生成静态网站。它支持多种主题和插件，拥有极高的灵活性和扩展性，能够帮助用户快速搭建个人博客或者其他类型的静态网站。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="1-安装-Node-js-和-NPM："><a href="#1-安装-Node-js-和-NPM：" class="headerlink" title="1. 安装 Node.js 和 NPM："></a>1. 安装 Node.js 和 NPM：</h3><p>Hexo 是基于 Node.js 构建的，因此需要首先安装 Node.js。可以在 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js 官网</a> 下载并安装。</p>
+<h3 id="2-安装-Hexo："><a href="#2-安装-Hexo：" class="headerlink" title="2. 安装 Hexo："></a>2. 安装 Hexo：</h3><p>安装 Node.js 后，可以使用 NPM 安装 Hexo：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-初始化-Hexo-项目："><a href="#3-初始化-Hexo-项目：" class="headerlink" title="3. 初始化 Hexo 项目："></a>3. 初始化 Hexo 项目：</h3><p>选择一个合适的磁盘目录在你的项目目录中运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>这将创建一个新的 Hexo 博客项目，并安装所需的依赖。</p>
+<h3 id="4-生成和预览博客："><a href="#4-生成和预览博客：" class="headerlink" title="4. 生成和预览博客："></a>4. 生成和预览博客：</h3><p>运行以下命令生成静态文件并启动本地服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>然后访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 来查看你的博客。</p>
+<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>前往 Hexo 主题官网（<a target="_blank" rel="noopener" href="https://hexo.io/themes/%EF%BC%89%E6%B5%8F%E8%A7%88%E5%90%84%E7%A7%8D%E4%B8%BB%E9%A2%98%E7%9A%84%E5%B1%95%E7%A4%BA%E5%92%8C%E4%BB%8B%E7%BB%8D%EF%BC%8C%E6%88%96%E8%80%85%E5%9C%A8">https://hexo.io/themes/）浏览各种主题的展示和介绍，或者在</a> GitHub 上通过搜索“Hexo theme”来查找更多主题。在众多主题中，根据自己的审美和博客功能需求选择一个心仪的主题。例如，如果您喜欢简洁现代的风格，next主题是一个很不错的选择；如果您追求个性化和丰富的视觉效果，landscape等主题可能更符合您的口味。</p>
+<p>下述以next主题为主介绍</p>
+<h3 id="下载next主题"><a href="#下载next主题" class="headerlink" title="下载next主题"></a>下载next主题</h3><ol>
+<li><p>如果安装了git命令可以直接跳转到安装目录下运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有安装git命令可以通过访问 <strong>github.com</strong> 官网找到改主题项目将源文件下载到 <code>themes</code> 目录下</p>
+</li>
+</ol>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开Hexo的配置文件 路径在 <code>安装目录\_config.yml</code>中</p>
+<p>将主题修改成刚刚下载的文件夹名</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="高级玩法"><a href="#高级玩法" class="headerlink" title="高级玩法"></a>高级玩法</h2><h3 id="Hexo配置文件"><a href="#Hexo配置文件" class="headerlink" title="Hexo配置文件"></a>Hexo配置文件</h3><p>路径在 <code>安装目录\_config.yml</code>中，可以通过修改配置文件来定制你的博客</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">LWM的个人博客</span> <span class="comment">#这是博客的标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;专注技术分享&#x27;</span> <span class="comment">#这是博客的描述</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">LWM</span>  <span class="comment">#作者</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编写自己的文章"><a href="#编写自己的文章" class="headerlink" title="编写自己的文章"></a>编写自己的文章</h3><p>运行Hexo命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;名称&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>将会在路径 <code>\source\_posts</code> 中新增改文章的Markdown文件 可以使用 <strong>Typora</strong> 软件编辑或者使用md语法编写</p>
+<p> Typora 软件 下载地址 <a target="_blank" rel="noopener" href="https://typoraio.cn/">https://typoraio.cn/</a></p>
+<p>可以在 categories: 中添加文章的分类</p>
+<p>可以在 tags: 中添加文章的标签</p>
+<h3 id="设置页面"><a href="#设置页面" class="headerlink" title="设置页面"></a>设置页面</h3><p>运行Hexo命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories <span class="comment">#开启分类页面</span></span><br><span class="line">hexo new page tags <span class="comment">#开启标签页面</span></span><br><span class="line">hexo new page about <span class="comment">#开启关于页面</span></span><br></pre></td></tr></table></figure>
+
+<p>将会在  <code>\source\categories</code>  中生成文档可以通过超连接的形式实现文章分类导航</p>
+<p>打开 主题配置文件 <code>路径在\themes\主题名称\_config.yml </code> 找到菜单配置选项</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">首页:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span>  <span class="comment">#这里原来提示是英文可以自行配置提示</span></span><br><span class="line">  <span class="string">关于作者:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span> <span class="comment">#/about/是跳转路径</span></span><br><span class="line">  <span class="string">标签:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="string">分类:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="string">归档:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>开启分类页面侧边栏将 前方的 # 删除解除注释</p>
+<p>其中 <code> /archives/ || fa fa-archive</code> 和 <code>/ || fa fa-home  </code> 是默认开启的</p>
+<p>其他配置项需手动开启 开启后会发现侧边栏会多出 开启的选择点击可以点击跳转到刚刚生成的md文档中</p>
+<h3 id="设置中文"><a href="#设置中文" class="headerlink" title="设置中文"></a>设置中文</h3><p>可以在主题配置文件中使用 <strong>Ctrl + F</strong> 查询 <code>language</code>  将对应的都改成 <code>zh-CN</code> 即可</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说Hexo是一个可玩性非高的开源软件，更多高级玩法也可以自己探索。这次的开源软件分享就先到这。有任何问题可以通过邮箱联系作者。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LWM">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWM的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/30/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-11-30 11:12:15 / Modified: 11:16:34" itemprop="dateCreated datePublished" datetime="2024-11-30T11:12:15+08:00">2024-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Redis缓存"><a href="#Redis缓存" class="headerlink" title="Redis缓存"></a>Redis缓存</h1><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><h3 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h3><p>请求数据库中没有的数据（被人员观察返回规律攻击）</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li><p>如果数据库没查到数据，redis 也缓存一个空。</p>
+</li>
+<li><p>通过布隆过滤器（数据结构）有一定误判性</p>
+<p>底层是一个bit map</p>
+<p>将键做多次hash 如果hash值在map中全部命中认为这个键是有效的</p>
+<p>若有一个hash 未命中就认为这个键不存在直接返回不查询redis和数据库</p>
+<p>可以通过Redisson去估算这个map的位数和hash次数</p>
+</li>
+</ul>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><h3 id="产生原因-1"><a href="#产生原因-1" class="headerlink" title="产生原因"></a>产生原因</h3><p>热点key失效</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li>热点key永不过期</li>
+<li>当 redis 查询失败的时候加一个线程同步锁，只有一个请求可以访问数据库，直到将数据重新写回redis中。</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><h3 id="产生原因-2"><a href="#产生原因-2" class="headerlink" title="产生原因"></a>产生原因</h3><p>Redis 中的key集中过期</p>
+<p>Redis直接宕机</p>
+<h3 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置key的过期时间的时候加一个随机数</p>
+<h2 id="Redis和数据库数据不一致的问题"><a href="#Redis和数据库数据不一致的问题" class="headerlink" title="Redis和数据库数据不一致的问题"></a>Redis和数据库数据不一致的问题</h2><h3 id="修改缓存-x-删除缓存-√"><a href="#修改缓存-x-删除缓存-√" class="headerlink" title="修改缓存(x)  删除缓存(√)"></a>修改缓存(x)  删除缓存(√)</h3><p>在修改数据库的数据的时候：</p>
+<ul>
+<li>推荐删除Redis中的缓存</li>
+<li>修改缓存的业务复杂</li>
+</ul>
+<h3 id="操作的顺序"><a href="#操作的顺序" class="headerlink" title="操作的顺序"></a>操作的顺序</h3><p><strong>推荐先操作数据库再操作缓存</strong>：只有再修改数据库中的业务代码的时候会短时间出现数据不一致问题</p>
+<p>先操作缓存再操作数据库：可以通过延迟双删的技术 删缓存&#x3D;&gt;修改数据库&#x3D;&gt;再删缓存(需要延迟一定时间防止并发)</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><h3 id="setnx（底层实现）"><a href="#setnx（底层实现）" class="headerlink" title="setnx（底层实现）"></a>setnx（底层实现）</h3><p>特性：redis中有这个键的时候写入这个会返回false；</p>
+<p>只有setnx返回true的时候是获取锁成功，在业务介绍时删除这个键用于释放锁。</p>
+<p>！！！设置过期时间（不设置可能会导致死锁）</p>
+<p>！！！过期时间&lt;业务处理时间会导致锁失效</p>
+<h3 id="redisson"><a href="#redisson" class="headerlink" title="redisson"></a>redisson</h3><p>如何解决 <strong>过期时间&lt;业务处理时间会导致锁失效</strong> 问题</p>
+<ul>
+<li>给锁加 uuid 使释放的时候确定是释放自己的锁</li>
+<li>通过一个子线程每隔一段观察业务释放完成，未完成<strong>延长锁过期时间</strong></li>
+</ul>
+<h3 id="redis集群的分布式锁"><a href="#redis集群的分布式锁" class="headerlink" title="redis集群的分布式锁"></a>redis集群的分布式锁</h3><p>集群中使用redisson时，默认只会在主节点设置锁就返回，集群内部自己同步这把锁。</p>
+<p>如果同步锁的时候主节点挂了会导致锁失效。</p>
+<p>解决方法：通过 <strong>red lock</strong> 设置锁在同步后才返回锁设置成功</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Welcome-To-Myblog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LWM">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWM的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/30/Welcome-To-Myblog/" class="post-title-link" itemprop="url">Welcome To Myblog</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-11-30 10:43:17 / Modified: 12:27:13" itemprop="dateCreated datePublished" datetime="2024-11-30T10:43:17+08:00">2024-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="欢迎来到LWM的博客"><a href="#欢迎来到LWM的博客" class="headerlink" title="欢迎来到LWM的博客"></a>欢迎来到LWM的博客</h1><p>在这你可以</p>
+<ul>
+<li>关注我开发的新动态</li>
+<li>获取我推荐的开源软件</li>
+<li>浏览我写的技术博客</li>
+<li>下载我开发的小工具</li>
+</ul>
+<p>技术不高<del>多多见谅</del> </p>
+<p>作者邮箱：<code>liw10471@gmail.com</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LWM</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LWM</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
