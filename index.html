@@ -189,6 +189,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/%E4%BD%BF%E7%94%A8python%E5%AE%9E%E7%8E%B0pdf%E8%BD%ACword/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LWM">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWM的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/01/%E4%BD%BF%E7%94%A8python%E5%AE%9E%E7%8E%B0pdf%E8%BD%ACword/" class="post-title-link" itemprop="url">使用python实现pdf转word</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-12-01 22:40:01 / Modified: 22:51:41" itemprop="dateCreated datePublished" datetime="2024-12-01T22:40:01+08:00">2024-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="如何使用Python实现PDF转Word"><a href="#如何使用Python实现PDF转Word" class="headerlink" title="如何使用Python实现PDF转Word"></a>如何使用Python实现PDF转Word</h1><h2 id="安装pdf2docx库"><a href="#安装pdf2docx库" class="headerlink" title="安装pdf2docx库"></a>安装pdf2docx库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pdf2docx </span><br><span class="line"><span class="comment"># 国内可以采用国内源提高下载速度 (这里以清华源为例)</span></span><br><span class="line">pip install pdf2docx -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pdf2docx <span class="keyword">import</span> Converter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入PDF文件路径</span></span><br><span class="line">pdf_path = <span class="string">&#x27;example.pdf&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出Word文件路径</span></span><br><span class="line">word_path = <span class="string">&#x27;output.docx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建转换器对象并进行转换</span></span><br><span class="line">cv = Converter(pdf_path)</span><br><span class="line">cv.convert(word_path, start=<span class="number">0</span>, end=<span class="literal">None</span>)</span><br><span class="line">cv.close()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;PDF文件已成功转换为Word文件：<span class="subst">&#123;word_path&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打包为可执行的-exe-文件（可选-方便使用）"><a href="#打包为可执行的-exe-文件（可选-方便使用）" class="headerlink" title="打包为可执行的 .exe 文件（可选 方便使用）"></a>打包为可执行的 <code>.exe</code> 文件（可选 方便使用）</h2><h3 id="实例代码-1"><a href="#实例代码-1" class="headerlink" title="实例代码"></a>实例代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> pdf2docx <span class="keyword">import</span> Converter</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm <span class="comment">#导出进度条显示</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_pdf_to_docx</span>(<span class="params">pdf_path, docx_path</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot; 将单个PDF文件转换为Word格式 &quot;&quot;&quot;</span></span><br><span class="line">    cv = Converter(pdf_path)</span><br><span class="line">    cv.convert(docx_path, start=<span class="number">0</span>, end=<span class="literal">None</span>)</span><br><span class="line">    cv.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_all_pdfs_in_directory</span>(<span class="params">directory</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot; 将当前目录下所有PDF文件转换为Word，并显示进度条 &quot;&quot;&quot;</span></span><br><span class="line">    pdf_files = [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(directory) <span class="keyword">if</span> f.lower().endswith(<span class="string">&#x27;.pdf&#x27;</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> pdf_files:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;当前目录下没有 PDF 文件。&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建进度条</span></span><br><span class="line">    <span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(pdf_files), desc=<span class="string">&quot;转换中&quot;</span>, unit=<span class="string">&quot;文件&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">        <span class="keyword">for</span> pdf_file <span class="keyword">in</span> pdf_files:</span><br><span class="line">            pdf_path = os.path.join(directory, pdf_file)</span><br><span class="line">            docx_path = os.path.join(directory, pdf_file.replace(<span class="string">&#x27;.pdf&#x27;</span>, <span class="string">&#x27;.docx&#x27;</span>))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 执行转换</span></span><br><span class="line">            convert_pdf_to_docx(pdf_path, docx_path)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 更新进度条</span></span><br><span class="line">            pbar.set_postfix(file=pdf_file)</span><br><span class="line">            pbar.update(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 获取当前目录</span></span><br><span class="line">    current_directory = os.getcwd()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 转换所有 PDF 文件</span></span><br><span class="line">    convert_all_pdfs_in_directory(current_directory)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装-PyInstaller"><a href="#安装-PyInstaller" class="headerlink" title="安装 PyInstaller"></a>安装 PyInstaller</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包-Python-脚本为-exe-文件"><a href="#打包-Python-脚本为-exe-文件" class="headerlink" title="打包 Python 脚本为 .exe 文件"></a>打包 Python 脚本为 .exe 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --onefile process_files.py</span><br></pre></td></tr></table></figure>
+
+<p>这将创建一个可执行的 <code>process_files.exe</code> 文件，可以直接在 Windows 上运行。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/%E4%BD%BF%E7%94%A8ffmpeg/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -859,7 +947,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -868,7 +956,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
