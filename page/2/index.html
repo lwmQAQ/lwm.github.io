@@ -189,6 +189,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LWM">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWM的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/30/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-11-30 11:12:15" itemprop="dateCreated datePublished" datetime="2024-11-30T11:12:15+08:00">2024-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-12-01 22:38:43" itemprop="dateModified" datetime="2024-12-01T22:38:43+08:00">2024-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Redis缓存"><a href="#Redis缓存" class="headerlink" title="Redis缓存"></a>Redis缓存</h1><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><h3 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h3><p>请求数据库中没有的数据（被人员观察返回规律攻击）</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li><p>如果数据库没查到数据，redis 也缓存一个空。</p>
+</li>
+<li><p>通过布隆过滤器（数据结构）有一定误判性</p>
+<p>底层是一个bit map</p>
+<p>将键做多次hash 如果hash值在map中全部命中认为这个键是有效的</p>
+<p>若有一个hash 未命中就认为这个键不存在直接返回不查询redis和数据库</p>
+<p>可以通过Redisson去估算这个map的位数和hash次数</p>
+</li>
+</ul>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><h3 id="产生原因-1"><a href="#产生原因-1" class="headerlink" title="产生原因"></a>产生原因</h3><p>热点key失效</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li>热点key永不过期</li>
+<li>当 redis 查询失败的时候加一个线程同步锁，只有一个请求可以访问数据库，直到将数据重新写回redis中。</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><h3 id="产生原因-2"><a href="#产生原因-2" class="headerlink" title="产生原因"></a>产生原因</h3><p>Redis 中的key集中过期</p>
+<p>Redis直接宕机</p>
+<h3 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置key的过期时间的时候加一个随机数</p>
+<h2 id="Redis和数据库数据不一致的问题"><a href="#Redis和数据库数据不一致的问题" class="headerlink" title="Redis和数据库数据不一致的问题"></a>Redis和数据库数据不一致的问题</h2><h3 id="修改缓存-x-删除缓存-√"><a href="#修改缓存-x-删除缓存-√" class="headerlink" title="修改缓存(x)  删除缓存(√)"></a>修改缓存(x)  删除缓存(√)</h3><p>在修改数据库的数据的时候：</p>
+<ul>
+<li>推荐删除Redis中的缓存</li>
+<li>修改缓存的业务复杂</li>
+</ul>
+<h3 id="操作的顺序"><a href="#操作的顺序" class="headerlink" title="操作的顺序"></a>操作的顺序</h3><p><strong>推荐先操作数据库再操作缓存</strong>：只有再修改数据库中的业务代码的时候会短时间出现数据不一致问题</p>
+<p>先操作缓存再操作数据库：可以通过延迟双删的技术 删缓存&#x3D;&gt;修改数据库&#x3D;&gt;再删缓存(需要延迟一定时间防止并发)</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><h3 id="setnx（底层实现）"><a href="#setnx（底层实现）" class="headerlink" title="setnx（底层实现）"></a>setnx（底层实现）</h3><p>特性：redis中有这个键的时候写入这个会返回false；</p>
+<p>只有setnx返回true的时候是获取锁成功，在业务介绍时删除这个键用于释放锁。</p>
+<p>！！！设置过期时间（不设置可能会导致死锁）</p>
+<p>！！！过期时间&lt;业务处理时间会导致锁失效</p>
+<h3 id="redisson"><a href="#redisson" class="headerlink" title="redisson"></a>redisson</h3><p>如何解决 <strong>过期时间&lt;业务处理时间会导致锁失效</strong> 问题</p>
+<ul>
+<li>给锁加 uuid 使释放的时候确定是释放自己的锁</li>
+<li>通过一个子线程每隔一段观察业务释放完成，未完成<strong>延长锁过期时间</strong></li>
+</ul>
+<h3 id="redis集群的分布式锁"><a href="#redis集群的分布式锁" class="headerlink" title="redis集群的分布式锁"></a>redis集群的分布式锁</h3><p>集群中使用redisson时，默认只会在主节点设置锁就返回，集群内部自己同步这把锁。</p>
+<p>如果同步锁的时候主节点挂了会导致锁失效。</p>
+<p>解决方法：通过 <strong>red lock</strong> 设置锁在同步后才返回锁设置成功</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Welcome-To-Myblog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -338,7 +453,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -347,7 +462,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
