@@ -735,10 +735,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2025-02-12 12:27:47 / Modified: 16:47:46" itemprop="dateCreated datePublished" datetime="2025-02-12T12:27:47+08:00">2025-02-12</time>
+              <time title="Created: 2025-02-12 12:27:47" itemprop="dateCreated datePublished" datetime="2025-02-12T12:27:47+08:00">2025-02-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-13 17:19:45" itemprop="dateModified" datetime="2025-02-13T17:19:45+08:00">2025-02-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -760,9 +766,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="DevOps概念"><a href="#DevOps概念" class="headerlink" title="DevOps概念"></a>DevOps概念</h2><h3 id="DevOps-是什么？"><a href="#DevOps-是什么？" class="headerlink" title="DevOps 是什么？"></a>DevOps 是什么？</h3><p><strong>DevOps</strong> 是一种结合了 <strong>开发（Development）</strong> 和 <strong>运维（Operations）</strong> 的文化和实践方法，旨在通过促进团队之间的协作、自动化流程以及持续交付来提高软件开发和交付的效率与质量。DevOps 的目标是缩短软件开发生命周期，同时确保更高的可靠性和稳定性。</p>
+          <h1 id="DevOps概念"><a href="#DevOps概念" class="headerlink" title="DevOps概念"></a>DevOps概念</h1><h2 id="DevOps-是什么？"><a href="#DevOps-是什么？" class="headerlink" title="DevOps 是什么？"></a>DevOps 是什么？</h2><p><strong>DevOps</strong> 是一种结合了 <strong>开发（Development）</strong> 和 <strong>运维（Operations）</strong> 的文化和实践方法，旨在通过促进团队之间的协作、自动化流程以及持续交付来提高软件开发和交付的效率与质量。DevOps 的目标是缩短软件开发生命周期，同时确保更高的可靠性和稳定性。</p>
 <hr>
-<h3 id="核心理念"><a href="#核心理念" class="headerlink" title="核心理念"></a>核心理念</h3><ol>
+<h2 id="核心理念"><a href="#核心理念" class="headerlink" title="核心理念"></a>核心理念</h2><ol>
 <li><strong>文化与协作</strong><br>DevOps 强调打破开发团队和运维团队之间的壁垒，倡导跨职能团队的合作。它鼓励团队成员共享责任，共同为产品的成功负责。</li>
 <li><strong>自动化</strong><br>自动化是 DevOps 的核心支柱之一，包括代码构建、测试、部署和监控等环节的自动化，以减少人为错误并提高效率。</li>
 <li><strong>持续集成与持续交付（CI&#x2F;CD）</strong><ul>
@@ -773,6 +779,68 @@
 <li><strong>监控与反馈</strong><br>在生产环境中实时监控应用程序的表现，并根据用户反馈快速迭代和优化。</li>
 <li><strong>基础设施即代码（IaC）</strong><br>使用代码来管理和配置基础设施，使得环境配置可重复、一致且易于管理。</li>
 </ol>
+<h1 id="CI-CD-工具"><a href="#CI-CD-工具" class="headerlink" title="CI&#x2F;CD 工具"></a>CI&#x2F;CD 工具</h1><h2 id="Jenkins-（一个开源的工具）"><a href="#Jenkins-（一个开源的工具）" class="headerlink" title="Jenkins （一个开源的工具）"></a>Jenkins （一个开源的工具）</h2><h3 id="一、使用-docker-启动"><a href="#一、使用-docker-启动" class="headerlink" title="一、使用 docker 启动"></a>一、使用 docker 启动</h3><ul>
+<li><p><strong>docker命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个docker中的网络</span></span><br><span class="line">docker network create jenkins</span><br><span class="line"></span><br><span class="line">docker run \</span><br><span class="line">  --name jenkins-docker \ <span class="comment"># 容器名称</span></span><br><span class="line">  --<span class="built_in">rm</span> \ </span><br><span class="line">  --detach \</span><br><span class="line">  --privileged \ <span class="comment"># 赋予容器特权模式，允许其运行 Docker 守护进程。</span></span><br><span class="line">  --network jenkins \ <span class="comment"># 将容器加入 jenkins 网络，方便 Jenkins 容器与其通信。</span></span><br><span class="line">  --network-alias docker \  <span class="comment"># 为容器设置网络别名 docker，Jenkins 容器可以通过 docker:2376 访问它。</span></span><br><span class="line">  --<span class="built_in">env</span> DOCKER_TLS_CERTDIR=/certs \  <span class="comment"># 启用 TLS 加密，确保 Docker 守护进程的安全通信。</span></span><br><span class="line">  --volume jenkins-docker-certs:/certs/client \  <span class="comment"># 挂载证书卷，用于 TLS 加密。</span></span><br><span class="line">  --volume jenkins-data:/var/jenkins_home \ </span><br><span class="line">  --publish 2376:2376 \  <span class="comment"># 将 Docker 守护进程的 TLS 端口暴露给宿主机。</span></span><br><span class="line">  docker:dind \</span><br><span class="line">  --storage-driver overlay2</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Jenkins 看板 </span></span><br><span class="line">docker run \</span><br><span class="line">  --name jenkins \</span><br><span class="line">  --<span class="built_in">rm</span> \</span><br><span class="line">  --detach \</span><br><span class="line">  --network jenkins \</span><br><span class="line">  --<span class="built_in">env</span> DOCKER_HOST=tcp://docker:2376 \</span><br><span class="line">  --<span class="built_in">env</span> DOCKER_CERT_PATH=/certs/client \</span><br><span class="line">  --<span class="built_in">env</span> DOCKER_TLS_VERIFY=1 \</span><br><span class="line">  --volume jenkins-data:/var/jenkins_home \</span><br><span class="line">  --volume jenkins-docker-certs:/certs/client:ro \</span><br><span class="line">  --publish 8081:8080 \ <span class="comment"># 将 Jenkins 的默认 UI 看板端口（8080）映射到宿主机的 8081 端口。</span></span><br><span class="line">  --publish 50000:50000 \  <span class="comment"># 这是 Jenkins 的 JNLP（Java Network Launch Protocol）端口，用于分布式构建节点的通信。</span></span><br><span class="line">  jenkins/jenkins:lts</span><br></pre></td></tr></table></figure>
+
+<hr>
+</li>
+<li><p>获取看板ui初始化密码</p>
+<ol>
+<li><p>进入容器内部</p>
+<p><code>docker exec -it jenkins bash</code></p>
+</li>
+<li><p>获取密码</p>
+<p><code>cat /var/jenkins_home/secrets/initialAdminPassword</code></p>
+</li>
+<li><p>web登录</p>
+</li>
+</ol>
+</li>
+<li><p>安装官方推荐插件</p>
+</li>
+<li><p>新建一个管理员</p>
+</li>
+</ul>
+<h3 id="二、任务类型-以常见的为例"><a href="#二、任务类型-以常见的为例" class="headerlink" title="二、任务类型(以常见的为例)"></a>二、任务类型(以常见的为例)</h3><h4 id="1-Freestyle-Project（自由风格项目）"><a href="#1-Freestyle-Project（自由风格项目）" class="headerlink" title="1. Freestyle Project（自由风格项目）"></a>1. <strong>Freestyle Project（自由风格项目）</strong></h4><p>这是 Jenkins 最经典的任务类型，适用于简单的构建任务。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><strong>灵活性</strong> ：支持各种构建步骤、脚本和工具。</li>
+<li><strong>配置简单</strong> ：通过 UI 界面手动配置所有选项。</li>
+<li>适用场景 ：<ul>
+<li>简单的构建任务（如编译代码、运行测试）。</li>
+<li>需要自定义构建步骤的场景。</li>
+<li>不需要复杂的流水线逻辑。</li>
+</ul>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<ul>
+<li>拉取代码 -&gt; 编译 -&gt; 打包 -&gt; 部署。</li>
+</ul>
+<hr>
+<h4 id="2-Pipeline（流水线项目）"><a href="#2-Pipeline（流水线项目）" class="headerlink" title="2. Pipeline（流水线项目）"></a>2. <strong>Pipeline（流水线项目）</strong></h4><p>Pipeline 是一种基于代码的任务类型，允许你通过脚本定义整个 CI&#x2F;CD 流程。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><strong>代码化</strong> ：使用 Groovy 脚本定义构建流程，便于版本控制和复用。</li>
+<li><strong>灵活性</strong> ：支持复杂的构建逻辑，包括并行执行、条件判断等。</li>
+<li><strong>持久性</strong> ：即使 Jenkins 重启，Pipeline 的状态也能恢复。</li>
+<li>适用场景 ：<ul>
+<li>复杂的 CI&#x2F;CD 流程。</li>
+<li>需要版本控制的构建逻辑。</li>
+<li>支持多分支流水线（Multibranch Pipeline）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">&#x27;Checkout&#x27;</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                git <span class="string">&#x27;https://github.com/your-repo.git&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">&#x27;Build&#x27;</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">&#x27;mvn clean package&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">&#x27;Test&#x27;</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">&#x27;mvn test&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">&#x27;Deploy&#x27;</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Deploying application...&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 
       
     </div>
